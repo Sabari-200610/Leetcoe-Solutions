@@ -1,0 +1,23 @@
+class Solution {
+    public int dominantIndex(int[] nums) {
+        int largest=-1;
+        int secondl=-1;
+        int index=-1;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]>largest){
+                secondl=largest;
+                largest=nums[i];
+                index=i;
+            }
+            else if(nums[i]>secondl){
+                secondl=nums[i];
+            }
+            
+        }
+         if(largest>=2*secondl){
+            return index;
+         }
+        
+        return -1;
+    }
+}
