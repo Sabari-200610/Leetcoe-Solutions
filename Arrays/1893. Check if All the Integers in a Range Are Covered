@@ -1,0 +1,18 @@
+class Solution {
+    public boolean isCovered(int[][] ranges, int left, int right) {
+        for(int num=left;num<=right;num++){
+            boolean covered =false;
+           for(int i=0;i<ranges.length;i++){
+                if(ranges[i][0]<=num && ranges[i][1]>=num ){
+                    covered =true;
+                    break;
+                }
+            }
+            if(!covered){
+                return false;
+            }
+        }
+       
+        return true;
+    }
+}
