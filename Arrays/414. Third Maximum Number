@@ -1,0 +1,28 @@
+class Solution {
+    public int thirdMax(int[] nums) {
+        long maxNum1=Long.MIN_VALUE;
+        long maxNum2=Long.MIN_VALUE;
+        long maxNum3=Long.MIN_VALUE;
+        for(int num:nums){
+            if(num==maxNum1 || num==maxNum2 || num==maxNum3){
+                continue;
+            }
+            if(num>maxNum1){
+                maxNum3=maxNum2;
+                maxNum2=maxNum1;
+                maxNum1=num;
+            }
+            else if(num>maxNum2){
+                maxNum3=maxNum2;
+                maxNum2=num;
+            }
+            else if(num>maxNum3){
+                maxNum3=num;
+            }
+        }
+        if(maxNum3==Long.MIN_VALUE){
+            return (int)maxNum1;
+        }
+        return (int)maxNum3;
+    }
+}
